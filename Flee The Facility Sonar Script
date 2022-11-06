@@ -1,0 +1,208 @@
+-- FTF Script | V1.0.0
+
+local Gui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local PingPlayers = Instance.new("TextButton")
+local UIGradient_2 = Instance.new("UIGradient")
+local UICorner_2 = Instance.new("UICorner")
+local PingBeast = Instance.new("TextButton")
+local UIGradient_3 = Instance.new("UIGradient")
+local UICorner_3 = Instance.new("UICorner")
+local TopBar = Instance.new("TextLabel")
+local UIGradient_4 = Instance.new("UIGradient")
+local UICorner_4 = Instance.new("UICorner")
+local Close = Instance.new("TextButton")
+local UIGradient_5 = Instance.new("UIGradient")
+local UICorner_5 = Instance.new("UICorner")
+
+--Properties:
+
+Gui.Name = "Gui"
+Gui.Parent = game.CoreGui
+
+Frame.Parent = Gui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.322600603, 0, 0.294673532, 0)
+Frame.Size = UDim2.new(0, 573, 0, 314)
+Frame.Draggable = true
+Frame.Active = true
+
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(177, 20, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(95, 15, 255))}
+UIGradient.Rotation = 50
+UIGradient.Parent = Frame
+
+PingPlayers.Name = "PingPlayers"
+PingPlayers.Parent = Frame
+PingPlayers.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PingPlayers.Position = UDim2.new(0.0593368262, 0, 0.25796175, 0)
+PingPlayers.Size = UDim2.new(0, 101, 0, 40)
+PingPlayers.Font = Enum.Font.Kalam
+PingPlayers.Text = "Radar Ping Players"
+PingPlayers.TextColor3 = Color3.fromRGB(104, 104, 104)
+PingPlayers.TextScaled = true
+PingPlayers.TextSize = 14.000
+PingPlayers.TextWrapped = true
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(141, 11, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(99, 51, 255))}
+UIGradient_2.Rotation = 213
+UIGradient_2.Parent = PingPlayers
+
+UICorner_2.Parent = PingPlayers
+
+PingBeast.Name = "PingBeast"
+PingBeast.Parent = Frame
+PingBeast.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PingBeast.Position = UDim2.new(0.0593368262, 0, 0.436305702, 0)
+PingBeast.Size = UDim2.new(0, 101, 0, 40)
+PingBeast.Font = Enum.Font.Kalam
+PingBeast.Text = "Ping Beast"
+PingBeast.TextColor3 = Color3.fromRGB(104, 104, 104)
+PingBeast.TextScaled = true
+PingBeast.TextSize = 14.000
+PingBeast.TextWrapped = true
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(141, 11, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(99, 51, 255))}
+UIGradient_3.Rotation = 325
+UIGradient_3.Parent = PingBeast
+
+UICorner_3.Parent = PingBeast
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Frame
+TopBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TopBar.Size = UDim2.new(0, 573, 0, 36)
+TopBar.Font = Enum.Font.Kalam
+TopBar.Text = "Flee The Facility | V1.0.0"
+TopBar.TextColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.TextSize = 23.000
+TopBar.TextXAlignment = Enum.TextXAlignment.Left
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(141, 11, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(99, 51, 255))}
+UIGradient_4.Rotation = 90
+UIGradient_4.Parent = TopBar
+
+UICorner_4.Parent = TopBar
+
+Close.Name = "Close"
+Close.Parent = Frame
+Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Close.Position = UDim2.new(0.938917994, 0, 0.00318471342, 0)
+Close.Size = UDim2.new(0, 35, 0, 35)
+Close.Font = Enum.Font.Kalam
+Close.Text = "X"
+Close.TextColor3 = Color3.fromRGB(104, 104, 104)
+Close.TextScaled = true
+Close.TextSize = 14.000
+Close.TextWrapped = true
+
+UIGradient_5.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(141, 11, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(99, 51, 255))}
+UIGradient_5.Rotation = 89
+UIGradient_5.Parent = Close
+
+UICorner_5.Parent = Close
+
+PingPlayers.MouseButton1Down:Connect(function()
+	--Player Detection
+	for i, v in pairs(game.Players:GetChildren()) do
+
+		--Variables
+
+		local Char = v.Character.HumanoidRootPart
+		local RadarSound = Instance.new("Sound")
+		local RadarIcon = Instance.new("BillboardGui")
+		local Frame = Instance.new("Frame")
+		local Image = Instance.new("ImageLabel")
+
+		--Code
+
+		RadarSound.Parent = Char
+		RadarSound.Volume = 1
+		RadarSound.Looped = false
+		RadarSound.SoundId = "rbxassetid://5141417285"
+		RadarSound:Play()
+		RadarIcon.Parent = Char
+		RadarIcon.Size = UDim2.new(0, 150, 0, 150)
+		RadarIcon.Enabled = true
+		RadarIcon.AlwaysOnTop = true
+		Frame.Parent = RadarIcon
+		Frame.Size = UDim2.new(1,0,1,0)
+		Frame.Visible = true
+		Frame.BackgroundTransparency = 1
+		Image.Parent = Frame
+		Image.Size = UDim2.new(1,0,1,0)
+		Image.BackgroundTransparency = 1
+		Image.Visible = true
+		Image.Image = "rbxassetid://7150933366"
+		Image.ImageColor3 = Color3.new(0.14902, 1, 0)
+		game:GetService("TweenService"):Create(Image,TweenInfo.new(1),{ImageTransparency = 1}):Play()
+		game:GetService("TweenService"):Create(Image,TweenInfo.new(1),{Size = UDim2.new(0, 500, 0, 500)}):Play()
+		wait(5)
+		print(RadarIcon.SizeOffset)
+		RadarSound:Destroy()
+		RadarIcon:Destroy()
+
+		--End
+	end
+end)
+
+PingBeast.MouseButton1Down:Connect(function()
+
+	--Beast Detection
+
+	for i, v in pairs(game.Workspace:GetChildren()) do
+		if v.name == "Hammer" then
+			print("OH NOT AGAIN")
+		else
+			for f, t in pairs(v:GetChildren()) do
+				if t.name == "Hammer" then
+
+					--Variables
+
+					local RadarSound = Instance.new("Sound")
+					local RadarIcon = Instance.new("BillboardGui")
+					local Frame = Instance.new("Frame")
+					local Image = Instance.new("ImageLabel")
+
+					--Code
+
+					RadarSound.Volume = 1
+					RadarSound.Looped = false
+					RadarSound.SoundId = "rbxassetid://5141417285"
+					RadarSound:Play()
+					RadarIcon.Parent = t
+					RadarIcon.Size = UDim2.new(0, 150, 0, 150)
+					RadarIcon.Enabled = true
+					RadarIcon.AlwaysOnTop = true
+					Frame.Parent = RadarIcon
+					Frame.Size = UDim2.new(1,0,1,0)
+					Frame.Visible = true
+					Frame.BackgroundTransparency = 1
+					Image.Parent = Frame
+					Image.Size = UDim2.new(1,0,1,0)
+					Image.BackgroundTransparency = 1
+					Image.Visible = true
+					Image.Image = "rbxassetid://7150933366"
+					Image.ImageColor3 = Color3.new(0.14902, 1, 0)
+					game:GetService("TweenService"):Create(Image,TweenInfo.new(1),{ImageTransparency = 1}):Play()
+					game:GetService("TweenService"):Create(Image,TweenInfo.new(1),{Size = UDim2.new(0, 500, 0, 500)}):Play()
+					wait(5)
+					print(RadarIcon.SizeOffset)
+					RadarSound:Destroy()
+					RadarIcon:Destroy()
+
+					--End
+				else
+					print("cool")
+				end
+			end
+		end
+	end
+end)
+
+Close.MouseButton1Down:Connect(function()
+	Gui:Destroy()
+end)
